@@ -18,7 +18,7 @@ const loadData = (e) => {
 
   p.textContent = currentIdx;
 
-  fetch('./data/'+pageName+'/'+currentIdx+'.json')
+  fetch('/data/'+pageName+'/'+currentIdx+'.json')
     .then(res => res.json())
     .then(dzikir => {
       if (dzikir.header) {
