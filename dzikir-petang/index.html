@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dzikir Petang - Dzikir App</title>
+  <link rel="shortcut icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="./app.css">
+</head>
+
+<body>
+  <main>
+    <div class="navbar">
+      <a href="/">&larr;</a>
+      <h1>Dzikir Petang</h1>
+    </div>
+
+    <div class="arabic" dir="rtl">
+      <div id="header"></div>
+      <p id="arabic"></p>
+    </div>
+
+    <sup id="counter"></sup>
+    <div id="page"></div>
+
+    <div id="detail">
+      <i id="arabic_read">{dzikir.arabic_read}</i>
+
+      <div id="translation"></div>
+      <div id="faedah"></div>
+      <div id="note"></div>
+    </div>
+  </main>
+  <script type="text/javascript">
+    const pageName = 'dzikirPetang';
+    let currentIdx = 1;
+    const maxPage = 16;
+  </script>
+  <script type="text/javascript" src="./dzikir.js" defer></script>
+</body>
+
+</html>

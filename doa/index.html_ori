@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doa Sehari-hari - Dzikir App</title>
+  <link rel="shortcut icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="./app.css">
+</head>
+
+<body>
+  <main>
+    <div class="navbar">
+      <a href="/">&larr;</a>
+      <h1>Do'a</h1>
+    </div>
+
+    <input type="text" style="width: 100%; padding: 5px; margin: 30px 0;" id="search" placeholder="Cari Do'a" />
+
+    <h2 style="margin-top: 0px;">Doa Berlindung dari hilangnya nikmat ALLOH subhanahuwata'ala</h2>
+    <div class="arabic" dir="rtl">
+      <p id="arabic">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ وَتَحَوُّلِ عَافِيَتِكَ وَفُجَاءَةِنِقْمَتِكَ وَجَمِيعِ سَخَطِكَ</p>
+    </div>
+
+    <sup id="counter"></sup>
+
+    <div id="detail">
+      <i id="arabic_read"></i>
+
+      <div id="translation">
+        <b>Artinya:</b>
+        <p class="translation">Wahai ALLOH, aku berlindung kepada-Mu dari lenyapnya kenikmatan-Mu dan berubahnya a'fiyah
+          (kesejahteraan) dari-Mu, dan aku berlindung dari kemurkaan-Mu yang datang dengan tiba-tiba dan
+          seluruh kemarahan-Mu. [HR. Muslim]</p>
+      </div>
+      <div id="faedah"></div>
+      <div id="note">
+        <small>Referensi : https://almanhaj.or.id/6930-doa-meminta-perlindungan-dari-sirnanya-nikmat.html</small>
+      </div>
+    </div>
+
+    <div id='content'></div>
+  </main>
+  <script>
+	  let html = ''
+	fetch("/data/doa/all.json").then(res => res.json())
+		.then(data => {
+			const doa = data.data
+			doa.forEach(i => {
+				html += '<div class="doa">'
+				html += '<h2>'+i.judul+'</h2>';
+				html += '<div class="arabic" dir="rtl"><p>'+i.arab+'</p></div>';
+				html += '<div><p class="translation">'+i.indo+'</p></div>';
+				html += '<small>'+i.source+'</small>';
+				html += '</div>';
+			})
+
+			document.getElementById("content").innerHTML = html;
+		})
+
+  </script>
+</body>
+
+</html>

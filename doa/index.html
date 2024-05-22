@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Doa Sehari-hari - Dzikir App</title>
+	<link rel="shortcut icon" type="image/png" href="./favicon.png">
+	<link rel="stylesheet" href="./app.css">
+</head>
+
+<body>
+	<main>
+		<div class="navbar">
+			<a href="/">&larr;</a>
+			<h1>Do'a</h1>
+		</div>
+
+		<div style="width: 100%; height: 40px; min-height: 30px; position: fixed; top: 60px; left: 10px; z-index: 2;">
+			<input type="search"
+				style="width: calc(100% - 20px); max-width: 768px; margin: 0 auto; padding: 7px; z-index: 2;"
+				id="search" placeholder="Cari Do'a" />
+		</div>
+		<div id='content' style="margin-top: 85px;"></div>
+	</main>
+	<script>
+		let html = ''
+		fetch("/data/doa/all.json").then(res => res.json())
+			.then(data => {
+				const doa = data.data
+				doa.forEach(i => {
+					html += '<div class="doa" data-keyword="' + i.judul + '">'
+					html += '<h2>' + i.judul + '</h2>';
+					html += '<div class="arabic" dir="rtl"><p>' + i.arab + '</p></div>';
+					html += '<div><p class="translation">' + i.indo + '</p></div>';
+					html += '<small>Source: ' + i.source + '</small>';
+					html += '</div>';
+				})
+
+				document.getElementById("content").innerHTML = html;
+			})
+		var search = document.getElementById("search")
+		if (search !== null) {
+			document.getElementById("search").onkeyup = function (e) {
+				var doaList = document.getElementsByClassName("doa");
+				var kw = this.value.toLowerCase();
+				for (var i = 0; i < doaList.length; i++) {
+					doaList[i].style.display = 'block';
+					if (doaList[i].getAttribute('data-keyword').toLowerCase().indexOf(kw) === -1) {
+						doaList[i].style.display = 'none';
+					}
+				}
+			}
+		}
+	</script>
+</body>
+
+</html>
