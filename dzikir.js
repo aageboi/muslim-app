@@ -39,7 +39,7 @@ const loadData = (e) => {
       }
 
       dzikir.sources.forEach(source => {
-        note.innerHTML += '<sup>'+source+'</sup>'
+        note.innerHTML += '<small>'+source+'</small>'
       })
 
     })

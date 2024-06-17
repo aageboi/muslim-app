@@ -1,10 +1,14 @@
 {
     "id": 15,
     "header": null,
-    "arabic": "سُبْحَانَ اللهِ وَبِحَمْدِهِ",
-    "arabic_read": "Subhanallah wa bi-hamdih.",
-    "translation": "Maha suci Allah, aku memuji-Nya.",
-    "faedah": "Barangsiapa yang mengucapkan kalimat ‘subhanallah wa bi hamdih’ di pagi dan petang hari sebanyak 100 x, maka tidak ada yang datang pada hari kiamat yang lebih baik dari yang ia lakukan kecuali orang yang mengucapkan semisal atau lebih dari itu.",
-    "counter": 100,
-    "sources": ["HR. Muslim no. 2692."]
+    "arabic": "لاَ إِلَـهَ إِلاَّ اللهُ وَحْدَهُ لاَ شَرِيْكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيْرُ",
+    "arabic_read": "Laa ilaha illallah wahdahu laa syarika lah, lahul mulku walahul hamdu wa huwa ‘ala kulli syai-in qodiir.",
+    "translation": "Tidak ada ilah yang berhak disembah selain Allah semata, tidak ada sekutu bagiNya. Bagi-Nya kerajaan dan segala pujian. Dia-lah yang berkuasa atas segala sesuatu.",
+    "faedah": "Barangsiapa yang membaca dzikir tersebut di pagi hari sebanyak sepuluh kali, Allah akan mencatatkan baginya 10 kebaikan, menghapuskan baginya 10 kesalahan, ia juga mendapatkan kebaikan semisal memerdekakan 10 budak, Allah akan melindunginya dari gangguan setan hingg petang hari. Siapa yang mengucapkannya di petang hari, ia akan mendapatkan keutamaan semisal itu pula.",
+    "counter": "1x atau 10x dan boleh juga 100",
+    "sources": [
+      "Dibaca 1x <b>Shahih:</b> HR Abu Dawud (no.5077), Ibnu Majah (no. 3867) dari Abu Ayyasy Zaid bin Shamit رضي الله عنه. ",
+      "Dibaca 10x <b>Shahih:</b> HR An-Nasai dalam <i>‘Amalul Yaum wal Lailah</i> (no. 24), Ahmad (V/420) dari Abu Ayub al-Anshari رضي الله عنه.",
+      "‘Barang siapa membacanya 100x dalam sehari, maka baginya (pahala) seperti memerdekakan sepuluh budak, ditulis seratur kebaikan, dihapus darinya seratus keburukan, baginya perlindungan dari syaitan pada hari itu hingga pada sore harinya. Seseorang tidak bisa mendatangkan yang lebih baik dari apa yang dibawanya kecuali dia melakukan lebih banyak lagi dari pada amalan itu.“ <br><b>Shahih:</b> HR Al-Bukhari (no. 3293, 6403), Muslim (no. 2691[28]), at-Tirmidzi (no. 3468), Ibnu Majah (no. 3798) dari Abu Hurairah رضي الله عنه."
+    ]
   }

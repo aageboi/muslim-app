@@ -1,10 +1,12 @@
 {
     "id": 18,
     "header": null,
-    "arabic": "سُبْحَانَ اللهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ وَمِدَادَ كَلِمَاتِهِ",
-    "arabic_read": "Subhanallah wa bi-hamdih, ‘adada kholqih wa ridhoo nafsih. wa zinata ‘arsyih, wa midaada kalimaatih.",
-    "translation": "Maha Suci Allah, aku memujiNya sebanyak makhluk-Nya, sejauh kerelaan-Nya, seberat timbangan ‘Arsy-Nya dan sebanyak tinta tulisan kalimat-Nya.",
-    "faedah": "Nabi shallallahu ‘alaihi wa sallam mengatakan pada Juwairiyah bahwa dzikir di atas telah mengalahkan dzikir yang dibaca oleh Juwairiyah dari selepas Shubuh sampai waktu dhuha",
-    "counter": 3,
-    "sources": ["HR. Muslim no. 2726."]
+    "arabic": "سُبْحَانَ اللهِ وَبِحَمْدِهِ",
+    "arabic_read": "Subhanallah wa bi-hamdih.",
+    "translation": "Maha suci Allah, aku memuji-Nya.",
+    "faedah": "Barangsiapa yang mengucapkan kalimat ‘subhanallah wa bi hamdih’ di pagi dan petang hari sebanyak 100 x, maka tidak ada yang datang pada hari kiamat yang lebih baik dari yang ia lakukan kecuali orang yang mengucapkan semisal atau lebih dari itu.",
+    "counter": 100,
+    "sources": [
+      "<b>Shahih:</b> HR Muslim (no. 2691, 2692) dari Abu Hurairah رضي الله عنه. Jumlah yang terbanyak dari dzikir Nabi  adalah seratus pada waktu pagi dan seratus pada waktu sore. Adapun riwayat yang menyebutkan jumlahnya sampai seribu kali adalah <b><i>munkar</i></b>, karena haditsnya bersanad <b><i>dha'if</i></b>. Lihat <i>Silsilah al-Ahadits adh-Dha'ifah</i> (no. 5296)."
+    ]
   }

@@ -1,10 +1,12 @@
 {
-    "id": 2,
-    "header": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
-    "arabic": " قُلْ هُوَ اللَّهُ أَحَدٌ اللَّهُ الصَّمَدُ لَمْ يَلِدْ وَلَمْ يُولَدْ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
-    "arabic_read": "",
-    "translation": "Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang. Katakanlah: Dialah Allah, Yang Maha Esa. Allah adalah ilah yang bergantung kepada-Nya segala urusan. Dia tidak beranak dan tiada pula diperanakkan, dan tidak ada seorang pun yang setara dengan Dia.” \n (QS. Al Ikhlas: 1-4)",
-    "faedah": "Siapa yang mengucapkannya tiga kali ketika pagi dan petang, maka segala sesuatu akan dicukupkan untuknya",
-    "counter": 3,
-    "sources": []
-  }
+  "id": 2,
+  "header": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+  "arabic": " قُلْ هُوَ اللَّهُ أَحَدٌ\n اللَّهُ الصَّمَدُ \n لَمْ يَلِدْ وَلَمْ يُولَدْ \n وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ",
+  "arabic_read": "QS Al Ikhlash [112]: 1-4",
+  "translation": "Dengan menyebut nama ALLOH Yang Maha Pengasih lagi Maha Penyayang. Katakanlah: Dialah ALLOH, Yang Maha Esa. ALLOH adalah ilah yang bergantung kepada-Nya segala urusan. Dia tidak beranak dan tiada pula diperanakkan, dan tidak ada seorang pun yang setara dengan Dia.”",
+  "faedah": "Siapa yang mengucapkannya tiga kali ketika pagi dan petang, maka segala sesuatu akan dicukupkan untuknya",
+  "counter": 3,
+  "sources": [
+    "<b>Hasan shahih:</b> HR Abu Dawud (no.5082), an-Nasai (VIII/250), at-Tirmidzi (no. 3575) dan Ahmad (V/312). Lihat Shahih at-Tirmidzi (no. 2829), Tuhfatul Ahwadzi (no. 3646), serta Shahih at-Targhib wat Tarhib (I/411, no. 649)"
+  ]
+}
