@@ -1,0 +1,46 @@
+{
+  "short_name": "ArisanKelas6",
+  "name": "ArisanKelas6",
+  "theme_color": "#4A90E2",
+  "background_color": "#F7F8F9",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "fav48.ico",
+      "sizes": "36x36",
+      "type": "image/ico",
+      "density": "0.75"
+    },
+    {
+      "src": "fav48.ico",
+      "type": "image/ico",
+      "sizes": "48x48"
+    },
+    {
+      "src": "fav180.ico",
+      "sizes": "72x72",
+      "type": "image/ico",
+      "density": "1.5"
+    },
+    {
+      "src": "fav180.ico",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    },
+    {
+      "src": "fav192.ico",
+      "sizes": "144x144",
+      "type": "image/ico",
+      "density": "3.0"
+    },
+    {
+      "src": "fav192.ico",
+      "sizes": "192x192",
+      "type": "image/ico",
+      "density": "4.0"
+    }
+  ],
+  "start_url": "/index.html"
+}
+

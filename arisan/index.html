@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arisan Sekolah</title>
+    <meta name="viewport"
+        content="initial-scale = 1.0, user-scalable = yes, width=device-width, height=device-height, maximum-scale=1.0">
+    <link rel="manifest" href="https://app.guyub.id/arisan/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/fav48.ico">
+  <link rel="shortcut icon" type="image/png" href="https://app.guyub.id/arisan/fav48.ico">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: "Verdana", "Arial", "Serif";
+            font-weight: 100;
+            background-color: #02a1ff;
+            color: #fff;
+            text-align: center;
+            padding: 50px 0;
+            margin-bottom: 40px;
+        }
+
+        .judul {
+            font-size: 2rem;
+            letter-spacing: -1.5px;
+        }
+
+        .bad {
+            padding: 30px;
+            animation: blink 300ms infinite;
+        }
+
+        #winner {
+            margin: 20% auto;
+            padding: 20px;
+            background-color: #482222;
+            min-width: 60%;
+            min-height: 50px;
+            text-align: center;
+            font-size: 2em;
+            color: #FFF;
+            border-radius: 20px;
+            display: none;
+        }
+
+        @keyframes blink {
+
+            0%,
+            49.9% {
+                background: #02a1ff;
+            }
+
+            50%,
+            99.9% {
+                background: red;
+            }
+        }
+
+        #kocokan {
+            width: 200px;
+            height: 115px;
+            border: 3px solid #fff;
+            margin: 20% auto 0 auto;
+            border-radius: 50%;
+            font-size: 1.5em;
+            padding-top: 85px;
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        #kocokan:hover {
+            background-color: #482222;
+            cursor: pointer;
+            color: #fff;
+            border-color: #482222;
+        }
+
+        .peserta {
+            padding: 5px;
+            border-radius: 10px;
+            color: #fff;
+            background-color: #171717;
+            font-size: 16px;
+        }
+
+        .pemenang {
+            background-color: #fff;
+            color: #000;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-5px, -5px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(5px, 6px) rotate(1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-5px, -5px) rotate(-1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        #lagi {
+            padding: 20px 0;
+            text-decoration: underline;
+            display: none;
+        }
+
+        #lagi:hover {
+            background-color: #482222;
+            color: #fff;
+        }
+
+        #peserta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(15, 1fr);
+            grid-column-gap: 4px;
+            grid-row-gap: 3px;
+            margin: 40px auto;
+        }
+    </style>
+
+    <div class="judul">
+        Arisan Sekolah
+    </div>
+
+    <p>Periode <span id="periode">Agustus 2024</span></p>
+
+
+    <div id="kocokan" onclick="kocok()">KOCOK</div>
+
+    <div id="winner"></div>
+
+    <div id="lagi" onclick="lagi()">kocok lagi!</div>
+
+    <div id="peserta"></div>
+
+    <div class="add-new" style="display: none;">
+        <input style="padding: 10px;" type="text" id="newMember">
+        <button style="padding: 10px;" type="button" onclick="tambahBaru()">Tambah Peserta</button>
+    </div>
+
+    <div id="debug"></div>
+
+    <script>
+        const d = new Date();
+        const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+        const year = d.getFullYear();
+        const month = months[d.getMonth()];
+        // const month = months[4];
+
+        const inputNewMember = document.getElementById("newMember");
+        const kocokan = document.getElementById("kocokan");
+        const listPeserta = document.getElementById("peserta");
+        const winnerBox = document.getElementById("winner");
+        const againButton = document.getElementById("lagi");
+
+        document.getElementById("periode").innerHTML = `${month} ${year}`;
+
+// localStorage.setItem(`winner-Januari-2025-3`, 'Raihan 2');
+// localStorage.setItem(`winners-2024`, JSON.stringify(['Raihan 2']));
+
+var debug = document.getElementById("debug");
+
+//debug.innerHTML += "<h1>Agustus 2024</h1>";
+//debug.innerHTML += "1. " + localStorage.getItem(`winner-Agustus-2024-1`) + "<br/>";
+//debug.innerHTML += "2. " + localStorage.getItem(`winner-Agustus-2024-2`) + "<br/>";
+//debug.innerHTML += "3. " + localStorage.getItem(`winner-Agustus-2024-3`) + "<br/>";
+//debug.innerHTML += "<h1>September 2024</h1>";
+//debug.innerHTML += "1. " + localStorage.getItem(`winner-September-2024-1`) + "<br/>";
+//debug.innerHTML += "2. " + localStorage.getItem(`winner-September-2024-2`) + "<br/>";
+//debug.innerHTML += "3. " + localStorage.getItem(`winner-September-2024-3`) + "<br/>";
+
+//debug.innerHTML += "<h1>Oktober 2024</h1>";
+//debug.innerHTML += "1. " + localStorage.getItem(`winner-Oktober-2024-1`) + "<br/>";
+//debug.innerHTML += "2. " + localStorage.getItem(`winner-Oktober-2024-2`) + "<br/>";
+//debug.innerHTML += "3. " + localStorage.getItem(`winner-Oktober-2024-3`) + "<br/>";
+
+//debug.innerHTML += "<h1>November 2024</h1>";
+//debug.innerHTML += "1. " + localStorage.getItem(`winner-November-2024-1`) + "<br/>";
+//debug.innerHTML += "2. " + localStorage.getItem(`winner-November-2024-2`) + "<br/>";
+//debug.innerHTML += "3. " + localStorage.getItem(`winner-November-2024-3`) + "<br/>";
+
+//debug.innerHTML += "<h1>Desember 2024</h1>";
+//debug.innerHTML += "1. " + localStorage.getItem(`winner-Desember-2024-1`) + "<br/>";
+//debug.innerHTML += "2. " + localStorage.getItem(`winner-Desember-2024-2`) + "<br/>";
+//debug.innerHTML += "3. " + localStorage.getItem(`winner-Desember-2024-3`) + "<br/>";
+
+//debug.innerHTML += "<h1>Januari 2025</h1>";
+//debug.innerHTML += "1. " + localStorage.getItem(`winner-Januari-2025-1`) + "<br/>";
+//debug.innerHTML += "2. " + localStorage.getItem(`winner-Januari-2025-2`) + "<br/>";
+//debug.innerHTML += "3. " + localStorage.getItem(`winner-Januari-2025-3`) + "<br/>";
+
+        var elem = document.documentElement;
+
+        /* View in fullscreen */
+        function openFullscreen() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+        }
+
+        function closeFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+        }
+
+
+        var nama = [
+            'Rifayya',
+            'Keeva',
+            'Mirza',
+            'Kiandra 1',
+            'Kiandra 2',
+            'Kirana',
+            'Ukail 1',
+            'Ukail 2',
+            'Ilma',
+            'Husna',
+            'Dzaki 1',
+            'Dzaki 2',
+            'Syakira',
+            'Alika',
+            'Farhan 1',
+            'Farhan 2',
+            'Nando',
+            'Haidar',
+            'Nasywa',
+		'Khanza'
+        ];
+
+
+		localStorage.setItem('peserta', JSON.stringify(nama));
+                //localStorage.setItem(`winners-2024`, JSON.stringify(["Kiandra 2","Ibnu","Alfath"]));
+                //localStorage.setItem(`winner-Agustus`, 4);
+                //localStorage.setItem(`winner-Agustus-2024-1`, 'Kiandra 2');
+                //localStorage.setItem(`winner-Agustus-2024-2`, 'Ibnu');
+                //localStorage.setItem(`winner-Agustus-2024-3`, 'Alfath');
+                //localStorage.setItem(`winner-Februari-2025-1`, 'Rifayya');
+                //localStorage.setItem(`winner-Februari-2025-2`, 'Rifayya');
+                //localStorage.setItem(`winner-Februari-2025-3`, 'Rifayya');
+                //localStorage.setItem(`winner-Maret-2025-1`, 'Rifayya');
+                //localStorage.setItem(`winner-Maret-2025-2`, 'Dzaki 2');
+                //localStorage.setItem(`winner-Maret-2025-3`, 'Alika');
+
+
+        var winner = localStorage.getItem(`winner-${month}`);
+        var peserta = localStorage.getItem('peserta');
+        var allWinners = [];
+        var udahMenang = localStorage.getItem(`winners-${year}`);
+        if (udahMenang) {
+            allWinners = JSON.parse(udahMenang)
+	    //debug.innerHTML += "<br /><br />" + allWinners.join(" ");
+            //allWinners.push("Kiandra 3")
+            //localStorage.setItem(`winners-${year}`, JSON.stringify(allWinners));
+        }
+        var pemenang1 = localStorage.getItem(`winner-${month}-${year}-1`);
+        var pemenang2 = localStorage.getItem(`winner-${month}-${year}-2`);
+        //var pemenang3 = localStorage.getItem(`winner-${month}-${year}-3`);
+
+//console.log("WINNERS: ", allWinners);
+//console.log("PEMENANG: ", pemenang1, pemenang2, pemenang3);
+//console.log("PESERTA: ", nama);
+
+        if (!winner) {
+            winner = 1;
+            localStorage.setItem(`winner-${month}`, winner);
+        }
+        //var nama = [];
+        if (peserta) {
+            nama = JSON.parse(peserta);
+        }
+
+        if ((pemenang1 && pemenang2) || nama.length < 2) {
+            kocokan.style.display = 'none';
+        }
+        var pemenang = '';
+
+        for (var p = 0; p <= nama.length - 1; p++) {
+            var win = '';
+            //if (pemenang1 == nama[p] || pemenang2 == nama[p] || pemenang3 == nama[p]) {
+            //    win = 'pemenang';
+            //}
+
+		//console.log('Nama:', nama[p]);
+
+            if (allWinners.includes(nama[p].trim())) {
+		//console.log(nama[p], 'menang');
+                win = 'pemenang';
+            }
+            listPeserta.innerHTML += `<div class="peserta ${win}" id="peserta-${(p + 1)}">${nama[p]}</div>`;
+        }
+
+
+        function lagi() {
+            winner = localStorage.getItem(`winner-${month}`)
+            pemenang = '';
+            if (winner < 3 && nama.length > 1) {
+                kocokan.style.display = 'block';
+                winnerBox.style.display = 'none';
+                againButton.style.display = 'none';
+            }
+        }
+        function kocok() {
+            kocokan.style.display = 'none';
+            winnerBox.style.display = 'block';
+
+            var filterBelumMenang = nama.filter(x => !allWinners.includes(x))
+
+            var anim = setInterval(function () {
+                var i = Math.floor(Math.random() * filterBelumMenang.length);
+                // console.log(filterBelumMenang[i])
+                if (pemenang1 == filterBelumMenang[i] || pemenang2 == filterBelumMenang[i]) {
+                    console.log(filterBelumMenang[i], 'sudah menang')
+                } else {
+                    winnerBox.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                    winnerBox.innerHTML = filterBelumMenang[i];
+                    pemenang = filterBelumMenang[i];
+                }
+            }, 400);
+
+
+            setTimeout(function () {
+                clearInterval(anim);
+                if (pemenang) {
+                    console.log('pemenang ke-', winner, ' adalah ', pemenang, allWinners)
+
+                    allWinners.push(pemenang)
+                    localStorage.setItem(`winners-${year}`, JSON.stringify(allWinners));
+
+                    localStorage.setItem(`winner-${month}`, (parseInt(winner) + 1));
+                    localStorage.setItem(`winner-${month}-${year}-` + winner, pemenang);
+                    winnerBox.classList.add('bad');
+
+                    let idx = nama.findIndex(n => n === pemenang)
+                    if (idx > -1) {
+                        document.getElementById('peserta-' + (parseInt(idx) + 1)).classList.add('pemenang')
+                    }
+
+                    if (winner < 2) {
+                        againButton.style.display = 'block';
+                    }
+                }
+            }, 15000);
+
+        }
+
+        function tambahBaru() {
+            var peserta = localStorage.getItem('peserta');
+            peserta = JSON.parse(peserta);
+
+            var newMember = inputNewMember.value.trim();
+            if (newMember) {
+                nama.push(newMember);
+                
+                localStorage.setItem('peserta', JSON.stringify(nama));
+                listPeserta.innerHTML += `<div class="peserta" id="peserta-${(nama.length + 1)}">${newMember}</div>`;
+            }
+
+            inputNewMember.value = '';
+        }
+
+    </script>
+
+</body>
+
+</html>
+
